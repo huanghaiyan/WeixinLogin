@@ -14,7 +14,6 @@
 #define kWXAPP_SECRET   @"87378fa8e806f3ea8706e812cf773b70"
 @interface ViewController ()
 {
-    NSString *wxCode;
     NSDictionary *dic;
 }
 
@@ -49,7 +48,7 @@
         NSLog(@"没有安装微信");
     }
 }
-
+#pragma mark - 获取access_token授权
 -(void)getAccess_token:(NSString *)wxCode
 
 {
@@ -99,7 +98,7 @@
     });
     
 }
-
+#pragma mark - 获取微信用户信息
 -(void)getUserInfo
 
 {
@@ -120,6 +119,22 @@
                 
                 NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                 NSLog(@"%@",dict);
+                /*
+                 {
+                 city = East;
+                 country = CN;
+                 headimgurl = "http://wx.qlogo.cn/mmopen/ZoB5P44qP04JsANhILvsMaaRwArQCyCM8gSNKiayKpMHOEJUrEiauhBed9Noicr171UvM0DlI5lyaA2TyyX48pnbOOH1Hcy0pjI/0";
+                 language = "zh_CN";
+                 nickname = "\U9ec4\U6d77\U71d5";
+                 openid = "on93ejp57V17O9asjN8zXWcuo2_g";
+                 privilege =     (
+                 );
+                 province = Beijing;
+                 sex = 2;
+                 unionid = oZ824s15eXTor1o2MTTgZD6SFjPk;
+                 }
+
+                 */
                 
                 [self postWXLogin:dict];//根据服务器接口，把获得的微信用户的信息，看服务器需要什么参数就传什么参数
                 
