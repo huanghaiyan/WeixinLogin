@@ -33,13 +33,10 @@
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-        <!--微信 URL Scheme 白名单-->
 		<string>wechat</string>
 		<string>weixin</string>
-        
-        <!-- 支付宝  URL Scheme 白名单-->
-        <string>alipay</string>
-        <string>alipayshare</string>
+		<string>alipay</string>
+		<string>alipayshare</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

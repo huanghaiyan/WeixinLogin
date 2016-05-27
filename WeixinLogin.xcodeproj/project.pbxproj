@@ -309,8 +309,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WeixinLogin/WeiXinSDK1.6.2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xinyuanchi.ContactsBank;
+				PRODUCT_BUNDLE_IDENTIFIER = xinyuanchi.MYProduct;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "641429a2-32f5-4baa-a483-ae3c0c506751";
 			};
 			name = Debug;
 		};
@@ -325,8 +326,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/WeixinLogin/WeiXinSDK1.6.2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xinyuanchi.ContactsBank;
+				PRODUCT_BUNDLE_IDENTIFIER = xinyuanchi.MYProduct;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "641429a2-32f5-4baa-a483-ae3c0c506751";
 			};
 			name = Release;
 		};
@@ -349,6 +351,7 @@
 				6BC10ECC1CA3C41500F20E5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
