@@ -21,6 +21,15 @@
 
 @implementation ViewController
 
+static NSString *kLinkURL = @"http://tech.qq.com/zt2012/tmtdecode/252.htm";
+static NSString *kLinkTagName = @"WECHAT_TAG_JUMP_SHOWRANK";
+static NSString *kLinkTitle = @"专访张小龙：产品之上的世界观";
+static NSString *kLinkDescription = @"微信的平台化发展方向是否真的会让这个原本简洁的产品变得臃肿？在国际化发展方向上，微信面临的问题真的是文化差异壁垒吗？腾讯高级副总裁、微信产品负责人张小龙给出了自己的回复。";
+
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -151,6 +160,30 @@
     NSLog(@"%@",dictionary);
 
 }
+- (IBAction)wxShare:(id)sender {
+    //创建发送对象实例
+    SendMessageToWXReq *sendReq = [[SendMessageToWXReq alloc] init];
+    sendReq.bText = NO;//不使用文本信息
+    sendReq.scene = 1;//0 = 好友列表 1 = 朋友圈 2 = 收藏
+    
+    //创建分享内容对象
+    WXMediaMessage *urlMessage = [WXMediaMessage message];
+    urlMessage.title = kLinkTitle;//分享标题
+    urlMessage.description = kLinkDescription;//分享描述
+    [urlMessage setThumbImage:[UIImage imageNamed:@"testImg"]];//分享图片,使用SDK的setThumbImage方法可压缩图片大小
+    
+    //创建多媒体对象
+    WXWebpageObject *webObj = [WXWebpageObject object];
+    webObj.webpageUrl = kLinkURL;//分享链接
+    
+    //完成发送对象实例
+    urlMessage.mediaObject = webObj;
+    sendReq.message = urlMessage;
+    
+    //发送分享信息
+    [WXApi sendReq:sendReq];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
